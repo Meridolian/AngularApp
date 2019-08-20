@@ -2,52 +2,85 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../models/post.model';
+import DataSnapshot = firebase.database.DataSnapshot;
+import { Subject } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class PostService {
 
-	private post: Post;
+	posts: Post[] = [];
+	postsSubject = new Subject<Post[]>();
 
-	count: number = -1;
+	constructor(private httpClient: HttpClient) {
+		this.getPosts();
+	}
 
-	constructor(private httpClient: HttpClient) { }
+	emitPosts(){
+		this.postsSubject.next(this.posts);
+	}
 
-	createPost(title: string, description: string) {
-		this.post = new Post({
-			id: this.count++,
-			title: title,
-			description: description,
-			date: new Date(),
-			liked: 0,
-			unliked: 0
-		})
+	savePosts(){
+		firebase.database().ref('/posts').set(this.posts).then(
+			() => {
+				console.log('Posts added to database !');
+			},
+			(error) => {
+				console.log(error);
+			}
+		)
+	}
+
+	createPost(newPost: Post) {
+		this.posts.push(newPost);
+		this.savePosts();
+		this.emitPosts();
+	}
+
+	getPosts() {
+		firebase.database().ref('/posts').on(
+			'value', (data: DataSnapshot) => {
+				this.posts = data.val() ? data.val() : [];
+				this.emitPosts();
+			},
+			(error) => {
+				console.log(error);
+			}
+		);
+	}
+
+	getSinglePost(id: number) {
 		return new Promise(
 			(resolve, reject) => {
-				firebase.database().ref().child('posts').push().key.then(
-					() => {
-						resolve();
-						
+				firebase.database().ref('/posts' + id).once('value').then(
+					(data: DataSnapshot) => {
+						resolve(data.val());
 					},
 					(error) => {
-						reject(error);
+						reject(error)
+						console.log(error);
 					}
 				);
 			}
 		);
 	}
 
-	getPost() {
-
-	}
-
 	updatePost() {
 
 	}
 
-	deletePost() {
-
+	deletePost(post: Post) {
+		const postIndexToRemove = this.posts.findIndex(
+			(postE1) => {
+				if(postE1 === post){
+					return true;
+				}
+			}
+		);
+		this.posts.splice(postIndexToRemove, 1);
+		this.savePosts();
+		this.emitPosts();
 	}
 
 }	

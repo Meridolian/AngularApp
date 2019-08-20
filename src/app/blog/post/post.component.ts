@@ -9,16 +9,8 @@ import * as firebase from 'firebase';
 	templateUrl: './post.component.html',
 	styleUrls: ['./post.component.scss']
 })
-export class PostComponent implements OnInit, Post {
+export class PostComponent implements OnInit {
 
-	post: {
-		id: number;
-		title: string;
-		description: string;
-		date: Date;
-		liked: number;
-		unliked: number;
-	}
 
 	constructor(private postService: PostService) {
 	}

@@ -1,14 +1,12 @@
 export class Post {
 
     constructor(
-        post: {
-            id: number,
-            title: string,
-            description: string,
-            date: Date,
-            liked: number,
-            unliked: number
-        }
+        public id: number,
+        public title: string,
+        public description: string,
+        public date: Date,
+        public liked: number,
+        public unliked: number
     ) { }
 
 }
