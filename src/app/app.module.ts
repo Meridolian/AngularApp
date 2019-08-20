@@ -7,12 +7,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeViewComponent } from './home-view/home-view.component';
+import { FourohfourComponent } from './fourohfour/fourohfour.component';
+import { PostComponent } from './blog/post/post.component';
+import { BlogComponent } from './blog/blog.component';
+import { CreateUserFormComponent } from './user/create-user-form/create-user-form.component';
+import { UserComponent } from './user/user.component';
+import { PostFormComponent } from './blog/post-form/post-form.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { FourohfourComponent } from './fourohfour/fourohfour.component';
+import { UserService } from './services/user.service';
+import { PostService } from './services/post.service';
 
 @NgModule({
 	declarations: [
@@ -20,8 +27,13 @@ import { FourohfourComponent } from './fourohfour/fourohfour.component';
 		SignInComponent,
 		SignUpComponent,
 		HeaderComponent,
-		HomeComponent,
-		FourohfourComponent
+		HomeViewComponent,
+		FourohfourComponent,
+		PostComponent,
+		BlogComponent,
+		CreateUserFormComponent,
+		UserComponent,
+		PostFormComponent
 	],
 	imports: [
 		BrowserModule,
@@ -32,7 +44,9 @@ import { FourohfourComponent } from './fourohfour/fourohfour.component';
 	],
 	providers: [
 		AuthGuardService,
-		AuthService
+		AuthService,
+		PostService,
+		UserService
 	],
 	bootstrap: [AppComponent]
 })
