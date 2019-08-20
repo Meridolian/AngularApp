@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Post } from 'src/app/models/post.model';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
-import { Router } from '@angular/router';
-import * as firebase from 'firebase';
 
 @Component({
 	selector: 'app-post',
@@ -11,12 +8,24 @@ import * as firebase from 'firebase';
 })
 export class PostComponent implements OnInit {
 
+	@Input() id: number;
+	@Input() title: string;
+	@Input() content: string;
+	@Input() date: Date;
+	@Input() liked: number;
+	@Input() unliked: number;
 
-	constructor(private postService: PostService) {
-	}
+	constructor(private postService: PostService) { }
 
 	ngOnInit() {
+	}
 
+	onLike(){
+		//to implement
+	}
+
+	onUnlike(){
+		//to implement
 	}
 
 }

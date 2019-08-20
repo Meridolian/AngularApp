@@ -83,4 +83,25 @@ export class PostService {
 		this.emitPosts();
 	}
 
+	//a faire plus tard parceque ça va etre chaud sa race
+	/* likePost(post, liked: boolean, id: number){
+		if(liked === true){
+			const postToChange = this.posts.findIndex(
+				(postE1) => {
+					if(postE1 === post){
+						return true;
+					}
+				}
+			);
+			this.posts.
+		}
+		else if(liked === false) {
+			this.posts.indexOf[id]
+		}
+		else {
+			return null;
+		}
+	}
+	*/
+
 }	

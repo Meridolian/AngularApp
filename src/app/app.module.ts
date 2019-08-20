@@ -10,11 +10,12 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeViewComponent } from './home-view/home-view.component';
 import { FourohfourComponent } from './fourohfour/fourohfour.component';
-import { PostComponent } from './blog/post/post.component';
+import { SinglePostComponent } from './blog/single-post/single-post.component';
 import { BlogComponent } from './blog/blog.component';
 import { CreateUserFormComponent } from './user/create-user-form/create-user-form.component';
 import { UserComponent } from './user/user.component';
 import { PostFormComponent } from './blog/post-form/post-form.component';
+import { PostComponent } from './blog/post/post.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
@@ -29,11 +30,12 @@ import { PostService } from './services/post.service';
 		HeaderComponent,
 		HomeViewComponent,
 		FourohfourComponent,
-		PostComponent,
+		SinglePostComponent,
 		BlogComponent,
 		CreateUserFormComponent,
 		UserComponent,
-		PostFormComponent
+		PostFormComponent,
+		PostComponent
 	],
 	imports: [
 		BrowserModule,

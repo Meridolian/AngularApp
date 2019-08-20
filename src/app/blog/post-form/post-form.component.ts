@@ -26,7 +26,7 @@ export class PostFormComponent implements OnInit {
 		this.createPostForm = this.formbuilder.group({
 			id: this.counter++,
 			title: ['', Validators.required],
-			description: ['', Validators.required],
+			content: ['', Validators.required],
 			date: new Date(),
 			liked: 0,
 			unliked: 0
@@ -36,12 +36,12 @@ export class PostFormComponent implements OnInit {
 	onCreatePost(){
 		const id = this.createPostForm.get('id').value;
 		const title = this.createPostForm.get('title').value;
-		const description = this.createPostForm.get('description').value;
+		const content = this.createPostForm.get('content').value;
 		const date = this.createPostForm.get('date').value;
 		const liked = this.createPostForm.get('liked').value;
 		const unliked = this.createPostForm.get('unliked').value;
 
-		const newPost = new Post(id, title, description, date, liked, unliked);
+		const newPost = new Post(id, title, content, date, liked, unliked);
 
 		this.postService.createPost(newPost);
 		this.router.navigate(['/posts']);

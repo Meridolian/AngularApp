@@ -1,1 +1,7 @@
-<p>post works!</p>
+<div class="list-group-item" id="post_container">
+    <h1 id="post_title">{{ title }}</h1>
+    <p id="post_date">{{ date | date : 'short' }}</p>
+    <p id="post_content">{{ content }}</p>
+    <button class="btn btn-success button_love" id="post_liked" (click)="onLike()">I like it</button>
+    <button class="btn btn-danger button_love" id="post_unliked" (click)="onUnlike()">I don't like it</button>
+</div>
