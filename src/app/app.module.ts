@@ -8,9 +8,8 @@ import { AppComponent } from './app.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeViewComponent } from './home-view/home-view.component';
+import { HomeComponent } from './home/home.component';
 import { FourohfourComponent } from './fourohfour/fourohfour.component';
-import { SinglePostComponent } from './blog/single-post/single-post.component';
 import { BlogComponent } from './blog/blog.component';
 import { CreateUserFormComponent } from './user/create-user-form/create-user-form.component';
 import { UserComponent } from './user/user.component';
@@ -28,9 +27,8 @@ import { PostService } from './services/post.service';
 		SignInComponent,
 		SignUpComponent,
 		HeaderComponent,
-		HomeViewComponent,
+		HomeComponent,
 		FourohfourComponent,
-		SinglePostComponent,
 		BlogComponent,
 		CreateUserFormComponent,
 		UserComponent,

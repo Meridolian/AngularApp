@@ -2,6 +2,6 @@
     <h1>Welcome To My Blog !</h1>
     <h3>What's new today ?</h3>
     <ul class="list-group">
-        <app-post id="postlist" class="list-group-item" *ngFor="let post of posts" [post]="post"></app-post>
+        <app-post id="postlist" class="list-group-item" *ngFor="let post of posts, let i = index" [post]="post"></app-post>
     </ul>
 </div>
