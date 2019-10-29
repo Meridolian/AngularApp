@@ -14,12 +14,12 @@ import { BlogComponent } from './blog/blog.component';
 import { CreateUserFormComponent } from './user/create-user-form/create-user-form.component';
 import { UserComponent } from './user/user.component';
 import { PostFormComponent } from './blog/post-form/post-form.component';
-import { PostComponent } from './blog/post/post.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { PostService } from './services/post.service';
+import { PostComponent } from './blog/post/post.component';
 
 @NgModule({
 	declarations: [

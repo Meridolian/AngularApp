@@ -5,7 +5,6 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { FourohfourComponent } from './fourohfour/fourohfour.component';
-import { BlogComponent } from './blog/blog.component';
 import { PostComponent } from './blog/post/post.component';
 
 
