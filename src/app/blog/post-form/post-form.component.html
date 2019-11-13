@@ -1,1 +1,20 @@
-<p>post-form works!</p>
+<div class="container" id="form">
+	<div id="items">
+		<h3>What's new today ?</h3><br>
+		<form [formGroup]="createPostForm" (ngSubmit)="onCreatePost()">
+			<div class="form-group" id="title">
+				<input type="text" placeholder="Your title..." class="form-control" formControlName="title">
+			</div>
+			<div class="form-group" id="content">
+				<textarea type="text" placeholder="And your post..." class="form-control"
+					formControlName="content"></textarea>
+			</div>
+			<div id="button">
+				<button class="btn btn-success" type="submit" [disabled]="createPostForm.invalid">Post it
+					!</button>
+				<button class="btn btn-danger" style="margin-left: 20px;" type="reset">Delete</button>
+			</div>
+		</form>
+		<p class="text-danger">{{ errorMessage }}</p>
+	</div>
+</div>

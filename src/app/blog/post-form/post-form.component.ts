@@ -16,7 +16,7 @@ export class PostFormComponent implements OnInit {
 	errorMessage: string;
 	counter: number = -1;
 
-	constructor(private postService: PostService, private router: Router, private formbuilder: FormBuilder) { }
+	constructor(private postService: PostService, private formbuilder: FormBuilder) { }
 
 	ngOnInit() {
 		this.initForm();
@@ -28,8 +28,8 @@ export class PostFormComponent implements OnInit {
 			title: ['', Validators.required],
 			content: ['', Validators.required],
 			date: new Date(),
-			liked: 0,
-			unliked: 0
+			likes: 0,
+			dislikes: 0
 		});
 	}
 
@@ -38,13 +38,10 @@ export class PostFormComponent implements OnInit {
 		const title = this.createPostForm.get('title').value;
 		const content = this.createPostForm.get('content').value;
 		const date = this.createPostForm.get('date').value;
-		const liked = this.createPostForm.get('liked').value;
-		const unliked = this.createPostForm.get('unliked').value;
-
-		const newPost = new Post(id, title, content, date, liked, unliked);
-
+		const likes = this.createPostForm.get('likes').value;
+		const dislikes = this.createPostForm.get('dislikes').value;
+		const newPost = new Post(id, title, content, date, likes, dislikes);
 		this.postService.createPost(newPost);
-		this.router.navigate(['/posts']);
 	}
 
 }

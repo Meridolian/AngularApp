@@ -5,8 +5,8 @@ export class Post {
         public title: string,
         public content: string,
         public date: Date,
-        public liked: number,
-        public unliked: number
+        public likes: number,
+        public dislikes: number
     ) { }
 
 }

@@ -27,14 +27,28 @@ export class PostComponent implements OnInit {
 	}
 
 	onLike() {
-		//to implement
+		const id = this.route.snapshot.params['id'];
+		this.postService.getSinglePost(+id).then(
+			(post: Post) => {
+				post.likes++;
+			}
+		);
+		this.postService.savePosts();
+		this.postService.emitPosts();
 	}
 
 	onUnlike() {
-		//to implement
+		const id = this.route.snapshot.params['id'];
+		this.postService.getSinglePost(+id).then(
+			(post: Post) => {
+				post.dislikes++;
+			}
+		);
+		this.postService.savePosts();
+		this.postService.emitPosts();
 	}
 
-	onBack(){
+	onBack() {
 		this.router.navigate(['/Home'])
 	}
 

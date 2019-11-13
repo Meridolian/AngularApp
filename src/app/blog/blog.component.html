@@ -1,7 +1,13 @@
 <div class="container" id="blog_container">
-    <h1>Welcome To My Blog !</h1>
-    <h3>What's new today ?</h3>
-    <ul class="list-group">
-        <app-post id="postlist" class="list-group-item" *ngFor="let post of posts, let i = index"></app-post>
-    </ul>
+	<br>
+	<h1>Welcome To My Blog !</h1>
+	<br>
+	<div id="form_section">
+		<app-post-form id="postform"></app-post-form>
+	</div>
+	<div class="posts_section">
+		<ul class="list-group">
+			<app-post id="postlist" class="list-group-item" *ngFor="let post of posts, let i = index"></app-post>
+		</ul>
+	</div>
 </div>
