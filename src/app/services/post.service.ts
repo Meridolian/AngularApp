@@ -66,8 +66,51 @@ export class PostService {
 		);
 	}
 
-	updatePost() {
-
+	updatePost(index, updateType, data) {
+		switch (updateType) {
+			case "like" :
+				this.posts.findIndex(
+					(postTemp) => {
+						if(postTemp.id === index){
+							this.posts[index].likes += data;
+							return true;
+						}
+					}
+				);
+				break;
+			case "dislike" :
+					this.posts.findIndex(
+						(postTemp) => {
+							if(postTemp.id === index){
+								this.posts[index].dislikes += data;
+								return true;
+							}
+						}
+					);
+				break;
+			case "title" :
+					this.posts.findIndex(
+						(postTemp) => {
+							if(postTemp.id === index){
+								this.posts[index].title = data;
+								return true;
+							}
+						}
+					);
+				break;
+			case "content" :
+					this.posts.findIndex(
+						(postTemp) => {
+							if(postTemp.id === index){
+								this.posts[index].content = data;
+								return true;
+							}
+						}
+					);
+				break;
+		}
+		this.savePosts();
+		this.emitPosts();
 	}
 
 	deletePost(post: Post) {

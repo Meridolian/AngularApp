@@ -24,24 +24,22 @@ export class PostFormComponent implements OnInit {
 
 	initForm(){
 		this.createPostForm = this.formbuilder.group({
-			id: this.counter++,
 			title: ['', Validators.required],
-			content: ['', Validators.required],
-			date: new Date(),
-			likes: 0,
-			dislikes: 0
+			content: ['', Validators.required]
 		});
 	}
 
 	onCreatePost(){
-		const id = this.createPostForm.get('id').value;
+		this.counter++;
+		const id = this.counter;
 		const title = this.createPostForm.get('title').value;
 		const content = this.createPostForm.get('content').value;
-		const date = this.createPostForm.get('date').value;
-		const likes = this.createPostForm.get('likes').value;
-		const dislikes = this.createPostForm.get('dislikes').value;
+		const date = new Date();
+		const likes = 0;
+		const dislikes = 0;
 		const newPost = new Post(id, title, content, date, likes, dislikes);
 		this.postService.createPost(newPost);
+		this.createPostForm.reset();
 	}
 
 }

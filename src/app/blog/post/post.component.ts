@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { PostService } from 'src/app/services/post.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import * as firebase from 'firebase';
 
 @Component({
 	selector: 'app-post',
@@ -37,7 +36,7 @@ export class PostComponent implements OnInit {
 		this.postService.emitPosts();
 	}
 
-	onUnlike() {
+	onDislike() {
 		const id = this.route.snapshot.params['id'];
 		this.postService.getSinglePost(+id).then(
 			(post: Post) => {
@@ -51,5 +50,7 @@ export class PostComponent implements OnInit {
 	onBack() {
 		this.router.navigate(['/Home'])
 	}
+
+	//POURQUOI PAS IMPLEMENTER LE FAIT DE REPONDRE AU POST ?
 
 }

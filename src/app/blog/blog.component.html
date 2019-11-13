@@ -7,7 +7,15 @@
 	</div>
 	<div class="posts_section">
 		<ul class="list-group">
-			<app-post id="postlist" class="list-group-item" *ngFor="let post of posts, let i = index"></app-post>
+			<li class="list-group-item" *ngFor="let post of posts, let i = index">
+				<div id="onePost">
+					<h1 id="post_title">{{ post.title }}</h1>
+					<p id="post_date">{{ post.date | date : 'short' }}</p>
+					<p id="post_content">{{ post.content }}</p>
+					<fa-icon id="postLike" (click)="onLike(i)" class="likebuttons btn btn-outline-primary" [icon]="faThumbsUp"></fa-icon><span> {{ post.likes }}</span>
+					<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(i)" class="likebuttons btn btn-outline-danger" [icon]="faThumbsUp"></fa-icon><span> {{ post.dislikes }}</span>
+				</div>
+			</li>
 		</ul>
 	</div>
 </div>
