@@ -16,7 +16,7 @@ export class PostComponent implements OnInit {
 	constructor(private postService: PostService, private route: ActivatedRoute, private router: Router) { }
 
 	ngOnInit() {
-		this.post = new Post(null, null, null, null, null, null);
+		this.post = new Post(null, null, null, null, null);
 		const id = this.route.snapshot.params['id'];
 		this.postService.getSinglePost(+id).then(
 			(post: Post) => {
@@ -25,30 +25,12 @@ export class PostComponent implements OnInit {
 		);
 	}
 
-	onLike() {
-		const id = this.route.snapshot.params['id'];
-		this.postService.getSinglePost(+id).then(
-			(post: Post) => {
-				post.likes++;
-			}
-		);
-		this.postService.savePosts();
-		this.postService.emitPosts();
+	onLike(post) {
+		this.postService.updatePost(post, "likes", 1);
 	}
 
-	onDislike() {
-		const id = this.route.snapshot.params['id'];
-		this.postService.getSinglePost(+id).then(
-			(post: Post) => {
-				post.dislikes++;
-			}
-		);
-		this.postService.savePosts();
-		this.postService.emitPosts();
-	}
-
-	onBack() {
-		this.router.navigate(['/Home'])
+	onDislike(post) {
+		this.postService.updatePost(post, "dislikes", 1);
 	}
 
 	//POURQUOI PAS IMPLEMENTER LE FAIT DE REPONDRE AU POST ?

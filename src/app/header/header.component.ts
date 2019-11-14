@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import * as firebase from 'firebase'; 
+import * as firebase from 'firebase';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-header',
@@ -8,6 +10,9 @@ import * as firebase from 'firebase';
 	styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+	faUserCircle = faUserCircle;
+	faHome = faHome;
 
 	isAuth: boolean;
 

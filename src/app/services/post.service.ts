@@ -17,11 +17,11 @@ export class PostService {
 		this.getPosts();
 	}
 
-	emitPosts(){
+	emitPosts() {
 		this.postsSubject.next(this.posts);
 	}
 
-	savePosts(){
+	savePosts() {
 		firebase.database().ref('/posts').set(this.posts).then(
 			() => {
 				console.log('Posts added to database !');
@@ -66,48 +66,13 @@ export class PostService {
 		);
 	}
 
-	updatePost(index, updateType, data) {
-		switch (updateType) {
-			case "like" :
-				this.posts.findIndex(
-					(postTemp) => {
-						if(postTemp.id === index){
-							this.posts[index].likes += data;
-							return true;
-						}
-					}
-				);
-				break;
-			case "dislike" :
-					this.posts.findIndex(
-						(postTemp) => {
-							if(postTemp.id === index){
-								this.posts[index].dislikes += data;
-								return true;
-							}
-						}
-					);
-				break;
-			case "title" :
-					this.posts.findIndex(
-						(postTemp) => {
-							if(postTemp.id === index){
-								this.posts[index].title = data;
-								return true;
-							}
-						}
-					);
-				break;
-			case "content" :
-					this.posts.findIndex(
-						(postTemp) => {
-							if(postTemp.id === index){
-								this.posts[index].content = data;
-								return true;
-							}
-						}
-					);
-				break;
+	updatePost(post, updateType, data) {
+		let tempList = this.posts;
+		for (var i = 0; i <= tempList.length; i++) {
+			let temp = tempList[i];
+			if (temp === post) {
+				this.posts[i][updateType] += data;
+			}
 		}
 		this.savePosts();
 		this.emitPosts();
@@ -116,7 +81,7 @@ export class PostService {
 	deletePost(post: Post) {
 		const postIndexToRemove = this.posts.findIndex(
 			(postE1) => {
-				if(postE1 === post){
+				if (postE1 === post) {
 					return true;
 				}
 			}

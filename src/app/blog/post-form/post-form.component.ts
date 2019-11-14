@@ -14,7 +14,6 @@ export class PostFormComponent implements OnInit {
 	createPostForm: FormGroup;
 	updatePostForm: FormGroup;
 	errorMessage: string;
-	counter: number = -1;
 
 	constructor(private postService: PostService, private formbuilder: FormBuilder) { }
 
@@ -30,14 +29,12 @@ export class PostFormComponent implements OnInit {
 	}
 
 	onCreatePost(){
-		this.counter++;
-		const id = this.counter;
 		const title = this.createPostForm.get('title').value;
 		const content = this.createPostForm.get('content').value;
 		const date = new Date();
 		const likes = 0;
 		const dislikes = 0;
-		const newPost = new Post(id, title, content, date, likes, dislikes);
+		const newPost = new Post(title, content, date, likes, dislikes);
 		this.postService.createPost(newPost);
 		this.createPostForm.reset();
 	}

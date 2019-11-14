@@ -7,15 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" routerLinkActive="active" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+                <fa-icon class="btn btn-outline-warning" [icon]="faHome" style="margin-right: 30px; cursor: pointer" routerLinkActive="active" routerLink="/home"></fa-icon>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="/home2">An other page</a>
+                <fa-icon class="btn btn-outline-warning" [icon]="faUserCircle" style="margin-right: 30px; cursor: pointer" routerLinkActive="active" routerLink="user/profile"></fa-icon>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" routerLink="/home">An other page again</a>
-            </li>
-        </ul>
+		</ul>
+
             <button class="btn btn-outline-success my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-in" *ngIf="!isAuth">Sign in</button>
             <button class="btn btn-outline-primary my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-up" *ngIf="!isAuth">Sign up</button>
             <button class="btn btn-outline-danger my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-in" *ngIf="isAuth" (click)="onSignOut()">Sign out</button>

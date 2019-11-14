@@ -12,8 +12,9 @@
 					<h1 id="post_title">{{ post.title }}</h1>
 					<p id="post_date">{{ post.date | date : 'short' }}</p>
 					<p id="post_content">{{ post.content }}</p>
-					<fa-icon id="postLike" (click)="onLike(i)" class="likebuttons btn btn-outline-primary" [icon]="faThumbsUp"></fa-icon><span> {{ post.likes }}</span>
-					<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(i)" class="likebuttons btn btn-outline-danger" [icon]="faThumbsUp"></fa-icon><span> {{ post.dislikes }}</span>
+					<fa-icon id="postLike" (click)="onLike(post)" class="likebuttons btn btn-outline-primary" [icon]="faThumbsUp"></fa-icon><span> {{ post.likes }}</span>
+					<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(post)" class="likebuttons btn btn-outline-danger" [icon]="faThumbsDown"></fa-icon><span> {{ post.dislikes }}</span>
+					<fa-icon class="btn btn-warning" id="modifyButton" [icon]="faPencilAlt" (click)="onModify(post)"></fa-icon>
 				</div>
 			</li>
 		</ul>

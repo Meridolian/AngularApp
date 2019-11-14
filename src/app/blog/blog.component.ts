@@ -3,7 +3,9 @@ import { Post } from '../models/post.model';
 import { Subscription } from 'rxjs';
 import { PostService } from '../services/post.service';
 import { Router } from '@angular/router';
-import { faThumbsUp }  from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp }  from '@fortawesome/free-solid-svg-icons';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-blog',
@@ -13,6 +15,8 @@ import { faThumbsUp }  from '@fortawesome/free-solid-svg-icons'
 export class BlogComponent implements OnInit, OnDestroy {
 
 	faThumbsUp = faThumbsUp;
+	faThumbsDown = faThumbsDown;
+	faPencilAlt = faPencilAlt;
 
 	posts: Post[];
 	postsSubscription: Subscription;
@@ -36,12 +40,12 @@ export class BlogComponent implements OnInit, OnDestroy {
 		this.router.navigate(['/posts', 'view', id]);
 	}
 
-	onLike(id) {
-		this.postService.updatePost(id, "like", 1);
+	onLike(post) {
+		this.postService.updatePost(post, "likes", 1);
 	}
 
-	onDislike(id) {
-		this.postService.updatePost(id, "dislike", 1);
+	onDislike(post) {
+		this.postService.updatePost(post, "dislikes", 1);
 	}
 
 	ngOnDestroy() {
