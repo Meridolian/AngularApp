@@ -25,12 +25,16 @@ export class PostComponent implements OnInit {
 		);
 	}
 
-	onLike(post) {
-		this.postService.updatePost(post, "likes", 1);
+	onLike(id: number) {
+		this.postService.updatePost(id, "likes", 1);
 	}
 
-	onDislike(post) {
-		this.postService.updatePost(post, "dislikes", 1);
+	onDislike(id: number) {
+		this.postService.updatePost(id, "dislikes", 1);
+	}
+
+	goBack(){
+		this.router.navigate(['/home']);
 	}
 
 	//POURQUOI PAS IMPLEMENTER LE FAIT DE REPONDRE AU POST ?

@@ -1,7 +1,14 @@
-<div class="list-group-item" id="post_container">
-    <h1 id="post_title">{{ post.title }}</h1>
-    <p id="post_date">{{ post.date | date : 'short' }}</p>
-    <p id="post_content">{{ post.content }}</p>
-    <button class="btn btn-success button_love" id="post_liked" (click)="onLike(post)">I like it {{ post.likes }}</button>
-    <button class="btn btn-danger button_love" id="post_unliked" (click)="onDislike(post)">I don't like it {{ post.dislikes }}</button>
+<div id="post_container">
+	<div class="list-group-item">
+		<h1 id="post_title">{{ post.title }}</h1>
+		<p id="post_date">{{ post.date | date : 'short' }}</p>
+		<p id="post_content">{{ post.content }}</p>
+		<button class="btn btn-success button_love" id="post_liked" (click)="onLike(post.id)">I like it
+			{{ post.likes }}</button>
+		<button class="btn btn-danger button_love" id="post_unliked" (click)="onDislike(post.id)">I don't like it
+			{{ post.dislikes }}</button>
+	</div><br>
+	<div id="footer">
+		<Button class="btn btn-lg btn-primary" (click)="goBack()">Back To Home</Button>
+	</div>
 </div>

@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { PostService } from './services/post.service';
 import { PostComponent } from './blog/post/post.component';
+import { UpdatePostFormComponent } from './blog/update-post-form/update-post-form.component';
 
 @NgModule({
 	declarations: [
@@ -34,7 +35,8 @@ import { PostComponent } from './blog/post/post.component';
 		CreateUserFormComponent,
 		UserComponent,
 		PostFormComponent,
-		PostComponent
+		PostComponent,
+		UpdatePostFormComponent
 	],
 	imports: [
 		BrowserModule,

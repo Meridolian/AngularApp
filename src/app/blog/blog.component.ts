@@ -3,7 +3,7 @@ import { Post } from '../models/post.model';
 import { Subscription } from 'rxjs';
 import { PostService } from '../services/post.service';
 import { Router } from '@angular/router';
-import { faThumbsUp }  from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -32,20 +32,20 @@ export class BlogComponent implements OnInit, OnDestroy {
 		this.postService.emitPosts();
 	}
 
-	onDeletePost(post: Post){
+	onDeletePost(post: Post) {
 		this.postService.deletePost(post);
 	}
 
-	onSinglePost(id: number){
+	onLike(id: number) {
+		this.postService.updatePost(id, "likes", 1);
+	}
+
+	onDislike(id: number) {
+		this.postService.updatePost(id, "dislikes", 1);
+	}
+
+	onViewSinglePost(id: number) {
 		this.router.navigate(['/posts', 'view', id]);
-	}
-
-	onLike(post) {
-		this.postService.updatePost(post, "likes", 1);
-	}
-
-	onDislike(post) {
-		this.postService.updatePost(post, "dislikes", 1);
 	}
 
 	ngOnDestroy() {

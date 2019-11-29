@@ -53,7 +53,7 @@ export class PostService {
 	getSinglePost(id: number) {
 		return new Promise(
 			(resolve, reject) => {
-				firebase.database().ref('/posts' + id).once('value').then(
+				firebase.database().ref('posts/' + id).once('value').then(
 					(data: DataSnapshot) => {
 						resolve(data.val());
 					},
@@ -66,13 +66,12 @@ export class PostService {
 		);
 	}
 
-	updatePost(post, updateType, data) {
-		let tempList = this.posts;
-		for (var i = 0; i <= tempList.length; i++) {
-			let temp = tempList[i];
-			if (temp === post) {
-				this.posts[i][updateType] += data;
-			}
+	updatePost(id, updateType, data) {
+		if(updateType === 'likes' || updateType === 'dislikes'){
+			this.posts[id][updateType] += data;
+		}
+		else if(updateType === 'title' || updateType === 'content') {
+			this.posts[id][updateType] = data;
 		}
 		this.savePosts();
 		this.emitPosts();
@@ -90,26 +89,5 @@ export class PostService {
 		this.savePosts();
 		this.emitPosts();
 	}
-
-	//a faire plus tard parceque ça va etre chaud sa race
-	/* likePost(post, liked: boolean, id: number){
-		if(liked === true){
-			const postToChange = this.posts.findIndex(
-				(postE1) => {
-					if(postE1 === post){
-						return true;
-					}
-				}
-			);
-			this.posts.
-		}
-		else if(liked === false) {
-			this.posts.indexOf[id]
-		}
-		else {
-			return null;
-		}
-	}
-	*/
 
 }

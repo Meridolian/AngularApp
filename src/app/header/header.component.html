@@ -1,21 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header_container">
-    <a class="navbar-brand" routerLinkActive="active" routerLink="/home">My App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <fa-icon class="btn btn-outline-warning" [icon]="faHome" style="margin-right: 30px; cursor: pointer" routerLinkActive="active" routerLink="/home"></fa-icon>
-            </li>
-            <li class="nav-item">
-                <fa-icon class="btn btn-outline-warning" [icon]="faUserCircle" style="margin-right: 30px; cursor: pointer" routerLinkActive="active" routerLink="user/profile"></fa-icon>
-            </li>
+	<a class="navbar-brand" routerLinkActive="active" routerLink="/home">My App</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<fa-icon class="btn btn-outline-warning" [icon]="faHome" style="margin-right: 30px; cursor: pointer"
+					routerLinkActive="active" routerLink="/home"></fa-icon>
+			</li>
+			<li class="nav-item">
+				<fa-icon class="btn btn-outline-warning" [icon]="faUserCircle"
+					style="margin-right: 30px; cursor: pointer" routerLinkActive="active" routerLink="user/profile">
+				</fa-icon>
+			</li>
 		</ul>
-
-            <button class="btn btn-outline-success my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-in" *ngIf="!isAuth">Sign in</button>
-            <button class="btn btn-outline-primary my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-up" *ngIf="!isAuth">Sign up</button>
-            <button class="btn btn-outline-danger my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-in" *ngIf="isAuth" (click)="onSignOut()">Sign out</button>
-    </div>
+		<button class="btn btn-outline-success my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-in"
+			*ngIf="!isAuth">Sign in</button>
+		<button class="btn btn-outline-primary my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-up"
+			*ngIf="!isAuth">Sign up</button>
+		<button class="btn btn-outline-danger my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-in"
+			*ngIf="isAuth" (click)="onSignOut()">Sign out</button>
+	</div>
 </nav>
