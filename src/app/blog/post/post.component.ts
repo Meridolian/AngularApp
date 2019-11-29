@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { PostService } from 'src/app/services/post.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-post',
@@ -10,6 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PostComponent implements OnInit {
 
+	faThumbsUp = faThumbsUp;
+	faThumbsDown = faThumbsDown;
 
 	post: Post;
 

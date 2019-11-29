@@ -2,13 +2,17 @@
 	<div class="list-group-item">
 		<h1 id="post_title">{{ post.title }}</h1>
 		<p id="post_date">{{ post.date | date : 'short' }}</p>
-		<p id="post_content">{{ post.content }}</p>
-		<button class="btn btn-success button_love" id="post_liked" (click)="onLike(post.id)">I like it
-			{{ post.likes }}</button>
-		<button class="btn btn-danger button_love" id="post_unliked" (click)="onDislike(post.id)">I don't like it
-			{{ post.dislikes }}</button>
+		<div id="post_content" *ngFor="let gift of post.list">
+			<p>{{ gift }}</p>
+		</div>
+		<fa-icon id="postLike" (click)="onLike(post.id)" class="likebuttons btn btn-outline-primary"
+			[icon]="faThumbsUp">
+		</fa-icon><span> {{ post.likes }}</span>
+		<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(post.id)"
+			class="likebuttons btn btn-outline-danger" [icon]="faThumbsDown"></fa-icon><span>
+			{{ post.dislikes }}</span>
 	</div><br>
 	<div id="footer">
-		<Button class="btn btn-lg btn-primary" (click)="goBack()">Back To Home</Button>
+		<Button class="btn btn-lg btn-primary" (click)="goBack()">Retourner à l'accueil</Button>
 	</div>
 </div>

@@ -1,18 +1,22 @@
 <div class="container" id="form">
 	<div id="items">
-		<h3>What's new today ?</h3><br>
-		<form [formGroup]="createPostForm" (ngSubmit)="onCreatePost()">
+		<h3>Ta liste de Noël</h3><br>
+		<form [formGroup]="giftListForm" (ngSubmit)="onCreateList()">
 			<div class="form-group" id="title">
-				<input type="text" placeholder="Your title..." class="form-control" formControlName="title">
+				<input type="text" placeholder="Ton prénom" class="form-control" formControlName="title">
 			</div>
-			<div class="form-group" id="content">
-				<textarea type="text" placeholder="And your post..." class="form-control"
-					formControlName="content"></textarea>
+			<div class="form-group" id="content" formArrayName="giftList"
+				*ngFor="let gift of giftArray; let i = index;">
+				<textarea type="text" [formControl]="gift.content[i]" placeholder="Idée de cadeau..."
+					class="form-control"></textarea>
+				<button class="btn btn-sm btn-danger">Supprimer</button>
 			</div>
+			<button class="btn btn-sm btn-warning" (click)="addGift()">Ajouter une idée</button>
+			<br><br><br>
 			<div id="button">
-				<button class="btn btn-success" type="submit" [disabled]="createPostForm.invalid">Post it
-					!</button>
-				<button class="btn btn-danger" style="margin-left: 20px;" type="reset">Delete</button>
+				<button class="btn btn-success" type="submit" [disabled]="createPostForm.invalid">
+					Poster !</button>
+				<button class="btn btn-danger" style="margin-left: 20px;" type="reset">Supprimer</button>
 			</div>
 		</form>
 		<p class="text-danger">{{ errorMessage }}</p>

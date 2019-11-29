@@ -70,9 +70,9 @@ export class PostService {
 		if(updateType === 'likes' || updateType === 'dislikes'){
 			this.posts[id][updateType] += data;
 		}
-		else if(updateType === 'title' || updateType === 'content') {
+		/* else if(updateType === 'title' || updateType === 'content') {
 			this.posts[id][updateType] = data;
-		}
+		} */
 		this.savePosts();
 		this.emitPosts();
 	}

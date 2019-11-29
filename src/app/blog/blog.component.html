@@ -1,6 +1,6 @@
 <div class="container" id="blog_container">
 	<br>
-	<h1>Welcome To My Blog !</h1>
+	<h1>PETIT PAPA NOEL (by Tchoupi)</h1>
 	<br>
 	<div id="form_section">
 		<app-post-form id="postform"></app-post-form>
@@ -11,23 +11,26 @@
 				<div id="onePost">
 					<h1 id="post_title" (click)="onViewSinglePost(i)">{{ post.title }}</h1>
 					<p id="post_date">{{ post.date | date : 'short' }}</p>
-					<p id="post_content">{{ post.content }}</p>
+					<div id="post_content" *ngFor="let gift of post.list">
+						<p>{{ gift.gift }}</p>
+					</div>
 					<fa-icon id="postLike" (click)="onLike(i)" class="likebuttons btn btn-outline-primary"
 						[icon]="faThumbsUp"></fa-icon><span> {{ post.likes }}</span>
 					<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(i)"
 						class="likebuttons btn btn-outline-danger" [icon]="faThumbsDown"></fa-icon><span>
 						{{ post.dislikes }}</span>
-					<fa-icon class="btn btn-warning" id="modifyButton" [icon]="faPencilAlt" (click)="onModify(i)"></fa-icon>
+					<!-- <fa-icon class="btn btn-warning" id="modifyButton" [icon]="faPencilAlt" (click)="onModify(i)">
+					</fa-icon> -->
 				</div>
 			</li>
 		</ul>
 	</div>
 </div>
 
-<div class="modal fade updatePost">
+<!-- <div class="modal fade updatePost">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<app-update-post-form postId="i"></app-update-post-form>
 		</div>
 	</div>
-</div>
+</div> -->

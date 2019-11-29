@@ -17,10 +17,10 @@
 			</li>
 		</ul>
 		<button class="btn btn-outline-success my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-in"
-			*ngIf="!isAuth">Sign in</button>
+			*ngIf="!isAuth">Connexion</button>
 		<button class="btn btn-outline-primary my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-up"
-			*ngIf="!isAuth">Sign up</button>
+			*ngIf="!isAuth">Inscription</button>
 		<button class="btn btn-outline-danger my-2 my-sm-0" routerLinkActive="active" routerLink="auth/sign-in"
-			*ngIf="isAuth" (click)="onSignOut()">Sign out</button>
+			*ngIf="isAuth" (click)="onSignOut()">Déconnexion</button>
 	</div>
 </nav>
