@@ -12,7 +12,7 @@
 					<h1 id="post_title" (click)="onViewSinglePost(i)">{{ post.title }}</h1>
 					<p id="post_date">{{ post.date | date : 'short' }}</p>
 					<div id="post_content" *ngFor="let gift of post.list">
-						<p>{{ gift.gift }}</p>
+						<p>{{ gift.idea }}</p>
 					</div>
 					<fa-icon id="postLike" (click)="onLike(i)" class="likebuttons btn btn-outline-primary"
 						[icon]="faThumbsUp"></fa-icon><span> {{ post.likes }}</span>
@@ -21,6 +21,10 @@
 						{{ post.dislikes }}</span>
 					<!-- <fa-icon class="btn btn-warning" id="modifyButton" [icon]="faPencilAlt" (click)="onModify(i)">
 					</fa-icon> -->
+					<br>
+					<div style="position: absolute; right: 15px; bottom: 15px;">
+						<button class="btn btn-outline-danger" (click)="onDelete(post)">Supprimer la liste</button>
+					</div>
 				</div>
 			</li>
 		</ul>

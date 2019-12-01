@@ -32,7 +32,7 @@ export class BlogComponent implements OnInit, OnDestroy {
 		this.postService.emitPosts();
 	}
 
-	onDeletePost(post: Post) {
+	onDelete(post: Post) {
 		this.postService.deletePost(post);
 	}
 

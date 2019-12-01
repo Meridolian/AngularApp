@@ -35,7 +35,7 @@ export class UpdatePostFormComponent implements OnInit {
 	initForm(){
 		this.updatePostForm = this.formBuilder.group({
 			title: [this.post.title, Validators.required],
-			content: [this.post.content, Validators.required]
+			/* content: [this.post.content, Validators.required] */
 		});
 	}
 

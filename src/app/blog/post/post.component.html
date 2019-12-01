@@ -11,6 +11,8 @@
 		<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(post.id)"
 			class="likebuttons btn btn-outline-danger" [icon]="faThumbsDown"></fa-icon><span>
 			{{ post.dislikes }}</span>
+		<br>
+		<button class="btn btn-outline-danger" (click)="onDelete(post)">Supprimer la liste</button>
 	</div><br>
 	<div id="footer">
 		<Button class="btn btn-lg btn-primary" (click)="goBack()">Retourner à l'accueil</Button>

@@ -37,6 +37,10 @@ export class PostComponent implements OnInit {
 		this.postService.updatePost(id, "dislikes", 1);
 	}
 
+	onDelete(post){
+		this.postService.deletePost(post);
+	}
+
 	goBack(){
 		this.router.navigate(['/home']);
 	}
