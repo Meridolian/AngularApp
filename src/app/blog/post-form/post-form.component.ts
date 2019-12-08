@@ -90,6 +90,11 @@ export class PostFormComponent implements OnInit {
 		console.log(this.giftList)
 	}
 
+	deleteForm(){
+		delete this.giftList;
+		delete this.title;
+	}
+
 	onCreateList() {
 		const title = this.title;
 		const list = this.giftList;

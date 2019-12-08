@@ -65,10 +65,42 @@ export class PostService {
 			}
 		);
 	}
+	modifyPost(oldPost: Post, newPost: Post){
+		/* const id = this.posts.findIndex(post => post === oldPost);
+		return new Promise(
+			(resolve, reject) => {
+				this.getSinglePost(id).then(
+					() => {
+						this.posts[id] = newPost;
+						this.savePosts();
+						this.emitPosts();
+						resolve(true);
+					},
+					(error) => {
+						reject(error);
+					}
+				)
+			}
+		); */
+		// TO DO 
+	}
 
 	updatePost(id, updateType, data) {
 		if(updateType === 'likes' || updateType === 'dislikes'){
 			this.posts[id][updateType] += data;
+		}
+		else if(updateType === "singleLikes" || updateType === "singleDislikes") {
+			for(var i = 0; i < this.posts.length; i++){
+				let currentPost = this.posts[i];
+				if(currentPost === id){
+					if(updateType === "singleLikes"){
+						this.posts[i].likes += data;
+					}
+					else if (updateType === "singlesDislikes"){
+						this.posts[i].dislikes += data;
+					}
+				}
+			}
 		}
 		/* else if(updateType === 'title' || updateType === 'content') {
 			this.posts[id][updateType] = data;

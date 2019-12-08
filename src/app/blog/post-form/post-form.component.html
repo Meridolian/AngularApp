@@ -14,7 +14,7 @@
 			<br><br><br>
 			<div id="button">
 				<button class="btn btn-success" (click)="onFormValid()">Poster !</button>
-				<button class="btn btn-danger" style="margin-left: 20px;" type="reset">Supprimer</button>
+				<button class="btn btn-danger" style="margin-left: 20px;" (click)="deleteForm()">Supprimer</button>
 			</div>
 		</div>
 		<p class="text-danger">{{ errorMessage }}</p>

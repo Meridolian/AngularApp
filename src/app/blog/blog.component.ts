@@ -48,6 +48,10 @@ export class BlogComponent implements OnInit, OnDestroy {
 		this.router.navigate(['/posts', 'view', id]);
 	}
 
+	onUpdateModal(id){
+
+	}
+
 	ngOnDestroy() {
 		this.postsSubscription.unsubscribe();
 	}

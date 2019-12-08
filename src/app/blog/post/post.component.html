@@ -1,19 +1,42 @@
 <div id="post_container">
-	<div class="list-group-item">
-		<h1 id="post_title">{{ post.title }}</h1>
+	<div class="list-group-item" *ngIf="!modify">
+		<h1 id="post_title" style="text-align: center;">{{ post.title }}</h1>
+		<div style="position: absolute; right: 15px; top: 15px;">
+			<fa-icon class="btn btn-warning" id="modifyButton" [icon]="faPencilAlt" (click)="onModify()">
+			</fa-icon>
+		</div>
 		<p id="post_date">{{ post.date | date : 'short' }}</p>
 		<div id="post_content" *ngFor="let gift of post.list">
-			<p>{{ gift }}</p>
+			<p>{{ gift.idea }}</p>
 		</div>
-		<fa-icon id="postLike" (click)="onLike(post.id)" class="likebuttons btn btn-outline-primary"
-			[icon]="faThumbsUp">
+		<fa-icon id="postLike" (click)="onLike(post)" class="likebuttons btn btn-outline-primary" [icon]="faThumbsUp">
 		</fa-icon><span> {{ post.likes }}</span>
-		<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(post.id)"
+		<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(post)"
 			class="likebuttons btn btn-outline-danger" [icon]="faThumbsDown"></fa-icon><span>
 			{{ post.dislikes }}</span>
 		<br>
-		<button class="btn btn-outline-danger" (click)="onDelete(post)">Supprimer la liste</button>
-	</div><br>
+		<div style="position: absolute; right: 15px; bottom: 15px;">
+			<button class="btn btn-outline-danger" (click)="onDelete(post)">Supprimer la liste</button>
+		</div>
+	</div>
+	<div *ngIf="modify">
+		<br>
+		<h1 style="text-align: center;">Prénom</h1><br>
+		<input class="form-control" type="text" [(ngModel)]="title"><br>
+		<h1 style="text-align: center;">Idées</h1>
+		<div *ngFor="let gift of giftList; let i = index;">
+			<input class="form-control" type="text" [(ngModel)]="gift.idea">
+			<button class="btn btn-sm btn-danger" (click)="onDeleteIdea(i)">Supprimer</button><br><br>
+		</div>
+		<button class="btn btn-lg btn-primary" (click)="onAddIdea()">Ajouter une idée</button>
+		<br><br>
+		<div *ngIf="errorMessage !== '' || errorMessage !== undefined">
+			<p>{{ errorMessage }}</p>
+		</div>
+		<button class="btn btn-outline-success" (click)="onModifyPost()">Modifier</button>
+		<button class="btn btn-outline-success" (click)="onCancel()">Annuler</button>
+	</div>
+	<br>
 	<div id="footer">
 		<Button class="btn btn-lg btn-primary" (click)="goBack()">Retourner à l'accueil</Button>
 	</div>

@@ -10,6 +10,10 @@
 			<li class="list-group-item" *ngFor="let post of posts, let i = index">
 				<div id="onePost">
 					<h1 id="post_title" (click)="onViewSinglePost(i)">{{ post.title }}</h1>
+					<div style="position: absolute; right: 15px; top: 15px;">
+						<fa-icon class="btn btn-warning" id="modifyButton" [icon]="faPencilAlt" (click)="onUpdateModal(i)">
+						</fa-icon> 
+					</div>
 					<p id="post_date">{{ post.date | date : 'short' }}</p>
 					<div id="post_content" *ngFor="let gift of post.list">
 						<p>{{ gift.idea }}</p>
@@ -19,8 +23,6 @@
 					<fa-icon id="postDislike" style="margin-left: 20px;" (click)="onDislike(i)"
 						class="likebuttons btn btn-outline-danger" [icon]="faThumbsDown"></fa-icon><span>
 						{{ post.dislikes }}</span>
-					<!-- <fa-icon class="btn btn-warning" id="modifyButton" [icon]="faPencilAlt" (click)="onModify(i)">
-					</fa-icon> -->
 					<br>
 					<div style="position: absolute; right: 15px; bottom: 15px;">
 						<button class="btn btn-outline-danger" (click)="onDelete(post)">Supprimer la liste</button>
@@ -31,10 +33,3 @@
 	</div>
 </div>
 
-<!-- <div class="modal fade updatePost">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<app-update-post-form postId="i"></app-update-post-form>
-		</div>
-	</div>
-</div> -->
